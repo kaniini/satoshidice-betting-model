@@ -61,7 +61,7 @@ print "Safe bets (95% likely to succeed or better):"
 for i in safe_recommendations:
     print "    ", i, likelyness_dict[i], "% likely to succeed"
 
-print "Recommendation : lessthan", safe_recommendations[-2]
+print "Recommendation : lessthan", safe_recommendations[-(len(safe_recommendations) / 2)]
 
 try:
     import matplotlib.pyplot as plt
@@ -71,7 +71,7 @@ except:
 
 print "Plotting above to bets.png."
 plt.plot(luckybets)
-plt.hlines(safe_recommendations, 0, 100, colors='ryg', linestyles='dashed')
+plt.hlines(safe_recommendations, 0, len(luckybets), colors='ryg', linestyles='dashed')
 plt.ylabel('lucky numbers (safe thresholds marked)')
 plt.xlabel('last 100 bets evaluated')
 plt.title('satoshidice betting strategy')
