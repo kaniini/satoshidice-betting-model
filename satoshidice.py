@@ -61,7 +61,7 @@ print "Safe bets (95% likely to succeed or better):"
 for i in safe_recommendations:
     print "    ", i, likelyness_dict[i], "% likely to succeed"
 
-print "Recommendation : lessthan", safe_recommendations[-(len(safe_recommendations) / 2)]
+print "Recommendation : lessthan", safe_recommendations[-((len(safe_recommendations) / 2) - 1) if len(safe_recommendations) > 1 else -1]
 
 try:
     import matplotlib.pyplot as plt
